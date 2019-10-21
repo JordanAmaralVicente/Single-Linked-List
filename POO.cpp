@@ -39,7 +39,20 @@ class No{
 
 class Lista{
     private:
-         No * head;
+        No * head;
+        int tamanho(){
+            int cont = 0;
+            if(head == NULL){
+                return 0;
+            }else{
+                No * aux = head;
+                while(aux != NULL){
+                    cont++;
+                    aux = aux->next;
+                }
+            }
+            return cont;
+        } 
     public:
         Lista(){
             head = NULL;
@@ -133,8 +146,6 @@ class Lista{
                 }
             }
         }
-        //falta implementar
-        void ordena();
 };
 
 int main(){
