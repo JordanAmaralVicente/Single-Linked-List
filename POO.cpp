@@ -6,14 +6,15 @@ class Menu{
         int op;
     public:
         void menu(){
-            cout<< "MENU" <<endl;
-            cout<< "Insere no inicio : 1" <<endl;
-            cout<< "Insere no fim : 2" <<endl;
-            cout<< "Remove : 3" <<endl;
-            cout<< "Imprimir : 4" <<endl;
-            cout<< "Alterar : 5" <<endl;
-            cout<< "Ordenar : 6" <<endl;
-            cout<< "Sair : 0\n>>" <<endl;
+            cout<< "*         MENU          *" <<endl;
+            cout<< "* [1] Insere no inicio  *" <<endl;
+            cout<< "* [2] Insere no fim     *" <<endl;
+            cout<< "* [3] Remove            *" <<endl;
+            cout<< "* [4] Imprimir          *" <<endl;
+            cout<< "* [5] Alterar           *" <<endl;
+            cout<< "* [6] Ordenar           *" <<endl;
+            cout<< "* [7] Limpar tela       *" <<endl;
+            cout<< "* [0] Sair              *\n>>" <<endl;
             cin >> op;
         }
         int getOp(){
@@ -38,9 +39,8 @@ class No{
 
 class Lista{
     private:
-
+         No * head;
     public:
-        No * head;
         Lista(){
             head = NULL;
         }
@@ -77,20 +77,20 @@ class Lista{
         }
         void insereInicio(No * n){
             if(noExiste(n->id) != NULL){
-                cout <<"FALHA AO CRIAR NÓ \n NÓ JÁ EXISTENTE !" << endl;
+                cout <<"Falha ao criar novo No : No já existe !" << endl;
             }else{
                 n->next = head;
                 head = n;
-                cout <<"Inserido com sucesso !" <<endl;
+                cout <<" Inserido com sucesso !\n  " <<endl;
             }
         }
         void removeNo(int i){
             if(head == NULL){
-                cout <<"Falha ao remover Nó : Lista vazia" <<endl; 
+                cout <<"Falha ao remover Nó : Lista vazia\n" <<endl; 
             }else if(head != NULL){
                 if(head->id == i ){
                     head = head->next;
-                    cout <<"No removido com sucesso ! \n" <<endl;
+                    cout <<"No removido com sucesso !\n" <<endl;
                 }else{
                     No * aux = NULL;
                     No * ant = head;
@@ -108,7 +108,7 @@ class Lista{
                         ant->next = aux->next;
                         cout <<"No removido com sucesso !\n" <<endl;
                     }else{
-                        cout <<"No nao existe !" <<endl;
+                        cout <<"Falha ao remover No : No nao existe !\n" <<endl;
                     }
                 }
             }
@@ -119,12 +119,12 @@ class Lista{
                 ptr->value = v;
                 cout <<"Valor alterado com sucesso !\n" <<endl;
             }else{
-                cout <<"Nao foi possivel alterar valor: No nao existe !\n" <<endl;
+                cout <<"Falha ao alterar valor: No nao existe !\n" <<endl;
             }
         }
         void imprime(){
             if(head == NULL){
-                cout <<"Nao foi possivel imprimir: Lista vazia !\n" <<endl;
+                cout <<"falha ao imprimir: Lista vazia !\n" <<endl;
             }else{
                 No * aux = head;
                 while(aux != NULL){
@@ -148,7 +148,8 @@ int main(){
         int aux = m.getOp();
         switch(aux){
             case 1:
-                cout << "Inserindo no Inicio \n" <<endl;
+                system("clear");
+                cout << "! Inserindo no Inicio !\n" <<endl;
                 cout <<"Insira o ID e, em seguida, o valor \n>>" <<endl;
                 cin >> id;
                 cin >> value;
@@ -157,7 +158,8 @@ int main(){
                 l.insereInicio(novo);
                 break;
             case 2:
-                cout << "Inserindo no Fim \n" <<endl; 
+                system("clear");
+                cout << "! Inserindo no Fim !\n" <<endl; 
                 cout <<"Insira o ID e, em seguida, o valor \n>>" <<endl;
                 cin >> id;
                 cin >> value;
@@ -167,23 +169,33 @@ int main(){
                 break;
             case 3:
                 int aux;
-                cout << "Remover : Insira o ID do No que deseja excluir \n>>" <<endl;
+                system("clear");
+                cout << "! Removendo !" <<endl;
+                cout <<"Insira o ID do No que deseja excluir \n>>" <<endl;
                 cin >> aux;
                 l.removeNo(aux);
                 break;
             case 4:
-                cout <<"\n" <<endl;
+                system("clear");
+                cout <<"! Imprimindo !" <<endl;
                 l.imprime();  
                 break;
             case 5:
-                cout <<"Alterar: Digite o Id do No que deseja alterar e em seguida o novo valor \n>>" <<endl;
+                system("clear");
+                cout <<"! Alterando !" <<endl;
+                cout <<"Digite o Id do No que deseja alterar e em seguida o novo valor \n>>" <<endl;
                 cin >> id;
                 cin >> value;
                 l.alterar(id, value);
                 break;
             case 6:
+                system("clear");
                 cout <<"Lista Ordenada :" <<endl;
                 break;
+            case 7:
+                system("clear");
+                //system("cls");
+                break; 
             default:
                 cout <<"OPERACAO INVALIDA !\n" <<endl;
         }
