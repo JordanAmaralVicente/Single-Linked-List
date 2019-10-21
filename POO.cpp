@@ -146,6 +146,16 @@ class Lista{
                 }
             }
         }
+        void ordena(){
+            No * aux = head;
+            int count;
+            for (size_t i = 0; i < count; i++)
+            {
+                /* CODE */
+                
+            }
+            
+        }
 };
 
 int main(){
