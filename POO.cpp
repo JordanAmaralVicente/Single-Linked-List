@@ -167,21 +167,26 @@ class Lista{
             }
             system("PAUSE");
         }
-        void ordena(){
-			No * p = head;
+        No * ordena(){
+			int comp = 0, swap = 0;
+			No *p = head;
 			while(p != NULL){
-				No * prox = p->next;
-				while(prox != NULL){
-					if(p->value > prox->value){
+				No *p2 = p->next;
+				while(p2 != NULL){
+					if(p->value > p2->value){
 						int aux = p->value;
-						p->value = prox->value;
-						prox->value = aux;
+						p->value = p2->value;
+						p2->value = aux;
 					}
-					prox = prox->next;
+					p2 = p2->next;
 				}
 				p = p->next;
-			}	
-        }
+			}
+			return head;
+		}
+        void setHead(No * no){
+			head = no;
+		}
 };
 
 int main(){
@@ -255,6 +260,7 @@ int main(){
             case 6:
                 system("cls");
                 cout <<"Lista Ordenada :" <<endl;
+                l.setHead(l.ordena());
                 break;
             case 7:
                 system("cls");
