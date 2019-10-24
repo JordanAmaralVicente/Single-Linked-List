@@ -58,19 +58,6 @@ class No{
 class Lista{
     private:
         No * head;
-        int tamanho(){
-            int cont = 0;
-            if(head == NULL){
-                return 0;
-            }else{
-                No * aux = head;
-                while(aux != NULL){
-                    cont++;
-                    aux = aux->next;
-                }
-            }
-            return cont;
-        } 
     public:
         Lista(){
             head = NULL;
@@ -181,14 +168,19 @@ class Lista{
             system("PAUSE");
         }
         void ordena(){
-            No * aux = head;
-            int count;
-            for (size_t i = 0; i < count; i++)
-            {
-                /* CODE */
-                
-            }
-            
+			No * p = head;
+			while(p != NULL){
+				No * prox = p->next;
+				while(prox != NULL){
+					if(p->value > prox->value){
+						int aux = p->value;
+						p->value = prox->value;
+						prox->value = aux;
+					}
+					prox = prox->next;
+				}
+				p = p->next;
+			}	
         }
 };
 
