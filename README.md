@@ -1,4 +1,4 @@
-## TRABALHO PROGRAMAÇÃO ORIENTADA A OBJETOS E ESTRUTURA DE DADOS
+## Single Linked List - OOP
 Trabalho de Programação Orientada a Objetos(POO) e Algoritmos e Estrutura de Dados (AED) que visa construir um programa em que se possa manipular dois tipos de estruturas de dados, sendo elas: Lista simplesmente encadeada e a Pilha.
 
 **Lista Simplesmente encadeada:**
