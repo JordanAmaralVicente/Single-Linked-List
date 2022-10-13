@@ -1,12 +1,15 @@
-#include<iostream>
+#include <iostream>
+#include "System.hpp"
+
 using namespace std;
 
-class Menu{
+class Menu {
     private:
         int op;
     public:
         void menu(){
-        	system("cls");
+            System::clean_console();
+
             cout<< "*         MENU          *" <<endl;
             cout<< "* [1] Insere no inicio  *" <<endl;
             cout<< "* [2] Insere no fim     *" <<endl;
@@ -19,7 +22,7 @@ class Menu{
             cin >> op;
         }
         void menu(int n){
-        	system("cls");
+        	System::clean_console();
         	cout<< "*         MENU          *" <<endl;
             cout<< "* [1] Insere            *" <<endl;
             cout<< "* [2] Remove            *" <<endl;
@@ -156,16 +159,17 @@ class Lista{
             system("PAUSE");
         }
         void imprime(){
-            if(head == NULL){
+            if (head == NULL) {
                 cout <<"Falha ao imprimir: Lista vazia !\n" <<endl;
-            }else{
+            } else {
                 No * aux = head;
                 while(aux != NULL){
                     cout <<" ID :"<< aux->id <<" | valor :"<< aux->value <<endl;
                     aux = aux->next;
                 }
             }
-            system("PAUSE");
+            cout << "Aperte ENTER para continuar" << endl;
+            cin;
         }
         No * ordena(){
 			int comp = 0, swap = 0;
@@ -204,7 +208,7 @@ int main(){
 	}else{
 		cout <<"IMPOSSIVEL COMPLEMENTAR EXECUCAO !" <<endl;
 		system("PAUSE");
-		system("cls");
+		System::clean_console();
 		main();
 	}
     while(m.getOp() != 0){
@@ -212,7 +216,7 @@ int main(){
         int aux = m.getOp();
         switch(aux){
             case 1:
-                system("cls");
+                System::clean_console();
                 cout << "! Inserindo no Inicio !\n" <<endl;
                 cout <<"Insira o ID e, em seguida, o valor \n>>" <<endl;
                 cin >> id;
@@ -222,7 +226,7 @@ int main(){
                 l.insereInicio(novo);
                 break;
             case 2:
-                system("cls");
+                System::clean_console();
                 cout << "! Inserindo no Fim !\n" <<endl; 
                 cout <<"Insira o ID e, em seguida, o valor \n>>" <<endl;
                 cin >> id;
@@ -233,7 +237,7 @@ int main(){
                 break;
             case 3:
                 int aux;
-                system("cls");
+                System::clean_console();
                 if(controlador_de_menu == 2){
 					cout << "! Removendo !" <<endl;
 					l.removeNo();
@@ -245,12 +249,12 @@ int main(){
             	}
                 break;
             case 4:
-                system("cls");
-                cout <<"! Imprimindo !" <<endl;
-                l.imprime();  
+                System::clean_console();
+                cout << "! Imprimindo !" << endl;
+                l.imprime();
                 break;
             case 5:
-                system("cls");
+                System::clean_console();
                 cout <<"! Alterando !" <<endl;
                 cout <<"Digite o Id do No que deseja alterar e em seguida o novo valor \n>>" <<endl;
                 cin >> id;
@@ -258,12 +262,12 @@ int main(){
                 l.alterar(id, value);
                 break;
             case 6:
-                system("cls");
+                System::clean_console();
                 cout <<"Lista Ordenada :" <<endl;
                 l.setHead(l.ordena());
                 break;
             case 7:
-                system("cls");
+                System::clean_console();
                 break; 
             default:
                 cout <<"OPERACAO INVALIDA !\n" <<endl;
